@@ -1,5 +1,6 @@
 ## Etapa 2: Macro-relieve (Bible 6.2).
 ## Produce el heightmap 0..1. Tierra vs. agua sale de comparar con sea_level.
+@tool
 class_name StageMacroRelief
 extends GenerationStage
 

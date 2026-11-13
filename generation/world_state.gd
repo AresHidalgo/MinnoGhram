@@ -1,5 +1,6 @@
 ## Resultado de la generación: el mundo tal como existe al terminar la Seed.
 ## No conoce nodos, escenas ni rendering — solo datos.
+@tool
 class_name WorldState
 extends RefCounted
 

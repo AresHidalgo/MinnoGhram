@@ -1,6 +1,7 @@
 ## Convierte el heightmap de un WorldState en una malla 3D + colisión.
 ## v0: una sola malla para todo el mundo. Los chunks, el LOD y el hilo separado
 ## (Bible sección 9) vienen después, cuando el tamaño del mundo lo exija.
+@tool
 class_name TerrainMeshBuilder
 extends RefCounted
 
