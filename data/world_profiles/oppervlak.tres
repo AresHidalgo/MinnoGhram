@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="WorldProfile" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://generation/world_profile.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+profile_id = &"oppervlak"
+display_name = "Oppervlak"
+world_size_cells = 256
+cell_size_m = 2.0
+height_scale_m = 60.0
+sea_level = 0.35
+noise_frequency = 0.008
+noise_octaves = 5
+edge_falloff = 0.6
+min_land_ratio = 0.4
+max_attempts = 16
