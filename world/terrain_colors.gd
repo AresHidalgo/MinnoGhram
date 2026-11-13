@@ -1,4 +1,5 @@
 ## Colores provisionales por altura, hasta que existan biomas reales (etapa 5).
+@tool
 class_name TerrainColors
 extends RefCounted
 

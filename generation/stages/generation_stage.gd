@@ -3,6 +3,7 @@
 ##  - Solo usa el RandomNumberGenerator / noise que recibe con su sub-seed.
 ##  - Nunca llama a randi()/randf() globales.
 ##  - Nunca pregunta "¿qué mundo es?": todo lo específico viene del WorldProfile.
+@tool
 class_name GenerationStage
 extends RefCounted
 

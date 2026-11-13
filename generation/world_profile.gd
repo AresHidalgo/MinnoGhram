@@ -4,6 +4,7 @@
 ##
 ## v0: solo los campos que usan las etapas 1 y 2. Se irán añadiendo campos
 ## a medida que se implementen más etapas (clima, biomas, dungeons...).
+@tool
 class_name WorldProfile
 extends Resource
 

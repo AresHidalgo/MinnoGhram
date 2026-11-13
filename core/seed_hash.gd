@@ -6,6 +6,7 @@
 ##
 ## Si alguna vez cambias este algoritmo, sube HASH_VERSION y guarda la versión
 ## junto con la Seed en los archivos de guardado.
+@tool
 class_name SeedHash
 extends RefCounted
 

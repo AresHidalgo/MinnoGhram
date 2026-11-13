@@ -1,6 +1,6 @@
 # Generador procedural — v0
 
-Primera versión del motor de generación de MinnoGhram (Godot 4.3+, GDScript).
+Primera versión del motor de generación de MinnoGhram (Godot 4.3+, probado también en 4.7.2).
 Implementa 2 de las 17 etapas del pipeline de `02_Procedural_Generation_Bible.md`.
 
 ## Qué incluye
@@ -13,7 +13,7 @@ Implementa 2 de las 17 etapas del pipeline de `02_Procedural_Generation_Bible.md
 | `generation/world_generator.gd` | Ejecuta las etapas en orden, con reintentos deterministas si una falla su validación. |
 | `generation/stages/` | Etapa 1 (Configuración Global) y Etapa 2 (Macro-relieve). |
 | `world/terrain_mesh_builder.gd` | Convierte el heightmap en malla 3D + colisión `HeightMapShape3D`. |
-| `scenes/terrain_preview.tscn` | Escena de prueba: abre y pulsa F6. **R** = nueva Seed, **P** = guardar PNG. |
+| `scenes/terrain_preview.tscn` | Escena de prueba. La isla aparece en el editor; cambia `Seed Text` en el Inspector. Con F6: **R** = nueva Seed, **P** = guardar PNG. |
 | `data/world_profiles/oppervlak.tres` | Perfil de Oppervlak. Edítalo en el Inspector y vuelve a ejecutar. |
 | `tests/test_determinism.gd` | Prueba que la misma Seed da siempre el mismo mundo. |
 | `tools/seed_visualizer.gd` | Genera PNGs de varias Seeds sin abrir el juego. |

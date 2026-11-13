@@ -1,4 +1,5 @@
 ## Etapa 1: Configuración Global (Bible 6.1).
+@tool
 class_name StageGlobalConfig
 extends GenerationStage
 

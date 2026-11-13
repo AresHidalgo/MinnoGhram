@@ -1,5 +1,6 @@
 ## Ejecuta el pipeline de generación en orden.
 ## Hoy tiene 2 de las 17 etapas; las siguientes se añaden a la lista _stages.
+@tool
 class_name WorldGenerator
 extends RefCounted
 

@@ -1,11 +1,21 @@
 ## Escena de prueba del generador: genera el mundo de una Seed y lo muestra en 3D.
-## Controles: R = Seed aleatoria nueva · P = guardar PNG del mapa en user://
-## La Seed actual se imprime en la consola de salida.
+##
+## En el EDITOR: la isla aparece directamente en el visor 3D. Cambia "Seed Text"
+## en el Inspector y se regenera al instante. Lo generado no se guarda en la escena.
+## Al EJECUTAR (F6): R = Seed aleatoria nueva · P = guardar PNG del mapa en user://
+## La Seed actual se imprime en el panel Salida.
+@tool
 extends Node3D
 
-@export var profile: WorldProfile = preload("res://data/world_profiles/oppervlak.tres")
+@export var profile: WorldProfile = preload("res://data/world_profiles/oppervlak.tres"):
+	set(value):
+		profile = value
+		_regenerate_if_ready()
 ## Texto o número. Vacío = Seed aleatoria.
-@export var seed_text: String = "minnoghram"
+@export var seed_text: String = "minnoghram":
+	set(value):
+		seed_text = value
+		_regenerate_if_ready()
 
 var _state: WorldState
 var _terrain: Node3D
@@ -13,10 +23,21 @@ var _terrain: Node3D
 
 func _ready() -> void:
 	_setup_environment()
-	_generate(SeedHash.seed_from_text(seed_text) if seed_text != "" else _random_seed())
+	_generate(_seed_from_inspector())
+
+
+func _seed_from_inspector() -> int:
+	return SeedHash.seed_from_text(seed_text) if seed_text != "" else _random_seed()
+
+
+func _regenerate_if_ready() -> void:
+	if is_node_ready() and profile != null:
+		_generate(_seed_from_inspector())
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if Engine.is_editor_hint():
+		return
 	if event is InputEventKey and event.pressed and not event.echo:
 		match event.keycode:
 			KEY_R:
@@ -91,6 +112,9 @@ func _setup_environment() -> void:
 	add_child(env)
 
 	# Cámara isométrica aérea de vista general (no es la cámara de juego).
+	# En el editor no hace falta: se usa la cámara del visor.
+	if Engine.is_editor_hint():
+		return
 	var cam := Camera3D.new()
 	var extent := profile.world_size_cells * profile.cell_size_m
 	cam.position = Vector3(extent * 0.55, extent * 0.6, extent * 0.55)
